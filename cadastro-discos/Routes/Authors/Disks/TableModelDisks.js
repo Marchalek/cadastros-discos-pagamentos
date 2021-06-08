@@ -1,12 +1,12 @@
 const Sequelize = require('sequelize')
-const Instancia = require('../../../Banco-de-Dados')
+const Instance = require('../../../Database')
 
-const colunasDaTabela = {
-    nome: {
+const tableColumns = {
+    name: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    autor: {    //Deve receber o ID do autor
+    author: {    //Deve receber o ID do autor
         type: Sequelize.INTEGER, 
         allowNull: false,
         // references: {
@@ -14,25 +14,25 @@ const colunasDaTabela = {
         //     key: 'id'
         // }
     },
-    ano: {
+    year: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    genero: {
+    gender: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    preco: {
+    price: {
         type: Sequelize.DOUBLE,
         allowNull: false
     }
 }
 
-const opcoes = {
+const settings = {
     freezeTableName: true,
-    tableName: 'discos',
+    tableName: 'Disks',
     timestamps: true,
-    createdAt: 'dataCriacao'
+    createdAt: 'creationDate'
 };
 
-module.exports = Instancia.define('disco', colunasDaTabela, opcoes)
+module.exports = Instance.define('disk', tableColumns, settings)
